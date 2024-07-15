@@ -1,5 +1,6 @@
 import React from 'react'
 import Login from './Pages/Login'
+import Dashboard from './Pages/DAshboard'
 
 function App() {
 
@@ -7,6 +8,8 @@ function App() {
     <>
       {/* Login page */}
       <Login/>
+      {/* Dashboard */}
+      <Dashboard/>
     </>
   )
 }
