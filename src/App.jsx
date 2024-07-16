@@ -1,15 +1,16 @@
 import React from 'react'
 import Login from './Pages/Login'
-import Dashboard from './Pages/DAshboard'
+import Student from './Pages/Students/Student'
 
 function App() {
 
   return (
     <>
       {/* Login page */}
-      <Login/>
+      {/* <Login/> */}
       {/* Dashboard */}
-      <Dashboard/>
+      {/* <Dashboard/> */}
+      <Student/>
     </>
   )
 }
