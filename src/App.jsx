@@ -4,6 +4,9 @@ import FacultyPage from './Pages/FacultyPage'
 import StudentPage from './Pages/StudentPage'
 import LoginPage from './Pages/LoginPage';
 import DashboardPage from './Pages/DashboardPage';
+import Header from './Components/Header';
+import Footer from './Components/Footer';
+
 
 const App = () => {
   const [faculties, setFaculties] = useState([]);
@@ -60,36 +63,42 @@ const App = () => {
 
   return (
     <Router>
-      <Routes>
-        <Route path="/" element={<LoginPage />} />
-        <Route path="/dashboard" element={<DashboardPage />} />
-        <Route
-          path="/faculties"
-          element={
-            <FacultyPage
-              faculties={faculties}
-              addOrUpdateFaculty={addOrUpdateFaculty}
-              deleteFaculty={deleteFaculty}
-              setFacultyToEdit={setFacultyToEdit}
-              facultyToEdit={facultyToEdit}
+      <Header />
+      <div className="min-h-screen flex flex-col">
+        <div className="flex-1">
+          <Routes>
+            <Route path="/" element={<LoginPage />} />
+            <Route path="/dashboard" element={<DashboardPage />} />
+            <Route
+              path="/faculties"
+              element={
+                <FacultyPage
+                  faculties={faculties}
+                  addOrUpdateFaculty={addOrUpdateFaculty}
+                  deleteFaculty={deleteFaculty}
+                  setFacultyToEdit={setFacultyToEdit}
+                  facultyToEdit={facultyToEdit}
+                />
+              }
             />
-          }
-        />
-        <Route
-          path="/students"
-          element={
-            <StudentPage 
-              faculties={faculties}
-              students={students}
-              addOrUpdateStudent={addOrUpdateStudent}
-              deleteStudent={deleteStudent}
-              setStudentToEdit={setStudentToEdit}
-              studentToEdit={studentToEdit}
+            <Route
+              path="/students"
+              element={
+                <StudentPage
+                  faculties={faculties}
+                  students={students}
+                  addOrUpdateStudent={addOrUpdateStudent}
+                  deleteStudent={deleteStudent}
+                  setStudentToEdit={setStudentToEdit}
+                  studentToEdit={studentToEdit}
+                />
+              }
             />
-          }
-        />
-        <Route path="*" element={<Navigate to="/" />} />
-      </Routes>
+            <Route path="*" element={<Navigate to="/" />} />
+          </Routes>
+        </div>
+        <Footer />
+      </div>
     </Router>
   );
 };
