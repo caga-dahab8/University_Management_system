@@ -1,7 +1,7 @@
 import React, { useState } from 'react';
 import { useNavigate } from 'react-router-dom';
 
-const LoginPage = () => {
+const LoginPage = ({ onLogin }) => {
   const [username, setUsername] = useState('');
   const [password, setPassword] = useState('');
   const [error, setError] = useState('');
@@ -10,6 +10,7 @@ const LoginPage = () => {
   const handleLogin = (e) => {
     e.preventDefault();
     if (username === 'Admin' && password === '1234') {
+      onLogin();
       navigate('/dashboard');
     } else {
       setError('Invalid username or password');

@@ -6,13 +6,14 @@ import LoginPage from './Pages/LoginPage';
 import DashboardPage from './Pages/DashboardPage';
 import Header from './Components/Header';
 import Footer from './Components/Footer';
-
+import ProtectedRoute from './Components/ProtectedRoute';
 
 const App = () => {
   const [faculties, setFaculties] = useState([]);
   const [students, setStudents] = useState([]);
   const [facultyToEdit, setFacultyToEdit] = useState(null);
   const [studentToEdit, setStudentToEdit] = useState(null);
+  const [isAuthenticated, setIsAuthenticated] = useState(false);
 
   useEffect(() => {
     const storedFaculties = JSON.parse(localStorage.getItem('faculties'));
@@ -61,37 +62,56 @@ const App = () => {
     localStorage.setItem('students', JSON.stringify(newStudents));
   };
 
+  const handleLogin = () => {
+    setIsAuthenticated(true);
+  };
+
+  const handleLogout = () => {
+    setIsAuthenticated(false);
+  };
+
   return (
     <Router>
       <Header />
       <div className="min-h-screen flex flex-col">
         <div className="flex-1">
           <Routes>
-            <Route path="/" element={<LoginPage />} />
-            <Route path="/dashboard" element={<DashboardPage />} />
+            <Route path="/" element={<LoginPage onLogin={handleLogin} />} />
+            <Route
+              path="/dashboard"
+              element={
+                <ProtectedRoute isAuthenticated={isAuthenticated}>
+                  <DashboardPage onLogout={handleLogout} />
+                </ProtectedRoute>
+              }
+            />
             <Route
               path="/faculties"
               element={
-                <FacultyPage
-                  faculties={faculties}
-                  addOrUpdateFaculty={addOrUpdateFaculty}
-                  deleteFaculty={deleteFaculty}
-                  setFacultyToEdit={setFacultyToEdit}
-                  facultyToEdit={facultyToEdit}
-                />
+                <ProtectedRoute isAuthenticated={isAuthenticated}>
+                  <FacultyPage
+                    faculties={faculties}
+                    addOrUpdateFaculty={addOrUpdateFaculty}
+                    deleteFaculty={deleteFaculty}
+                    setFacultyToEdit={setFacultyToEdit}
+                    facultyToEdit={facultyToEdit}
+                  />
+                </ProtectedRoute>
               }
             />
             <Route
               path="/students"
               element={
-                <StudentPage
-                  faculties={faculties}
-                  students={students}
-                  addOrUpdateStudent={addOrUpdateStudent}
-                  deleteStudent={deleteStudent}
-                  setStudentToEdit={setStudentToEdit}
-                  studentToEdit={studentToEdit}
-                />
+                <ProtectedRoute isAuthenticated={isAuthenticated}>
+                  <StudentPage
+                    faculties={faculties}
+                    students={students}
+                    addOrUpdateStudent={addOrUpdateStudent}
+                    deleteStudent={deleteStudent}
+                    setStudentToEdit={setStudentToEdit}
+                    studentToEdit={studentToEdit}
+                  />
+                </ProtectedRoute>
               }
             />
             <Route path="*" element={<Navigate to="/" />} />
