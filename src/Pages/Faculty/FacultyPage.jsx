@@ -1,6 +1,5 @@
 import React from 'react';
-// import FacultyForm from '../components/FacultyForm';
-import FacultyForm from '../Components/FacultyForm'
+import FacultyForm from '../../Components/Faculty/FacultyForm';
 
 const FacultyPage = ({ faculties, addOrUpdateFaculty, deleteFaculty, setFacultyToEdit, facultyToEdit }) => {
   return (

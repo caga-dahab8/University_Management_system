@@ -1,12 +1,11 @@
 import React, { useState, useEffect } from 'react';
 import { BrowserRouter as Router, Route, Routes, Navigate } from 'react-router-dom';
-import FacultyPage from './Pages/FacultyPage'
-import StudentPage from './Pages/StudentPage'
-import LoginPage from './Pages/LoginPage';
+import FacultyPage from './Pages/Faculty/FacultyPage';
+import StudentPage from './Pages/Students/StudentPage';
+import LoginPage from './Pages/Login/LoginPage';
 import DashboardPage from './Pages/DashboardPage';
-import Header from './Components/Header';
-import Footer from './Components/Footer';
-import ProtectedRoute from './Components/ProtectedRoute';
+import ProtectedRoute from './Components/ProtectedRoute/ProtectedRoute';
+import Layout from './Components/Layout/Layout';
 
 const App = () => {
   const [faculties, setFaculties] = useState([]);
@@ -72,53 +71,53 @@ const App = () => {
 
   return (
     <Router>
-      <Header />
-      <div className="min-h-screen flex flex-col">
-        <div className="flex-1">
-          <Routes>
-            <Route path="/" element={<LoginPage onLogin={handleLogin} />} />
-            <Route
-              path="/dashboard"
-              element={
-                <ProtectedRoute isAuthenticated={isAuthenticated}>
-                  <DashboardPage onLogout={handleLogout} />
-                </ProtectedRoute>
-              }
-            />
-            <Route
-              path="/faculties"
-              element={
-                <ProtectedRoute isAuthenticated={isAuthenticated}>
-                  <FacultyPage
-                    faculties={faculties}
-                    addOrUpdateFaculty={addOrUpdateFaculty}
-                    deleteFaculty={deleteFaculty}
-                    setFacultyToEdit={setFacultyToEdit}
-                    facultyToEdit={facultyToEdit}
-                  />
-                </ProtectedRoute>
-              }
-            />
-            <Route
-              path="/students"
-              element={
-                <ProtectedRoute isAuthenticated={isAuthenticated}>
-                  <StudentPage
-                    faculties={faculties}
-                    students={students}
-                    addOrUpdateStudent={addOrUpdateStudent}
-                    deleteStudent={deleteStudent}
-                    setStudentToEdit={setStudentToEdit}
-                    studentToEdit={studentToEdit}
-                  />
-                </ProtectedRoute>
-              }
-            />
-            <Route path="*" element={<Navigate to="/" />} />
-          </Routes>
-        </div>
-        <Footer />
-      </div>
+      <Routes>
+        <Route path="/" element={<LoginPage onLogin={handleLogin} />} />
+        <Route
+          path="/dashboard"
+          element={
+            <ProtectedRoute isAuthenticated={isAuthenticated}>
+              <Layout isAuthenticated={isAuthenticated} onLogout={handleLogout}>
+                <DashboardPage />
+              </Layout>
+            </ProtectedRoute>
+          }
+        />
+        <Route
+          path="/faculties"
+          element={
+            <ProtectedRoute isAuthenticated={isAuthenticated}>
+              <Layout isAuthenticated={isAuthenticated} onLogout={handleLogout}>
+                <FacultyPage
+                  faculties={faculties}
+                  addOrUpdateFaculty={addOrUpdateFaculty}
+                  deleteFaculty={deleteFaculty}
+                  setFacultyToEdit={setFacultyToEdit}
+                  facultyToEdit={facultyToEdit}
+                />
+              </Layout>
+            </ProtectedRoute>
+          }
+        />
+        <Route
+          path="/students"
+          element={
+            <ProtectedRoute isAuthenticated={isAuthenticated}>
+              <Layout isAuthenticated={isAuthenticated} onLogout={handleLogout}>
+                <StudentPage
+                  faculties={faculties}
+                  students={students}
+                  addOrUpdateStudent={addOrUpdateStudent}
+                  deleteStudent={deleteStudent}
+                  setStudentToEdit={setStudentToEdit}
+                  studentToEdit={studentToEdit}
+                />
+              </Layout>
+            </ProtectedRoute>
+          }
+        />
+        <Route path="*" element={<Navigate to="/" />} />
+      </Routes>
     </Router>
   );
 };

@@ -1,8 +1,6 @@
 import React from 'react';
-// import StudentTable from '../Components/StudentTable';
-// import StudentForm from '../components/StudentForm';
-import StudentForm from '../Components/StudentForm'
-import StudentTable from '../Components/StudentTable'
+import StudentForm from '../../Components/Student/StudentForm';
+import StudentTable from '../../Components/Student/StudentTable';
 
 const StudentPage = ({ faculties, students, addOrUpdateStudent, deleteStudent, setStudentToEdit, studentToEdit }) => {
   return (
