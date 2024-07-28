@@ -1,7 +1,7 @@
 import React, { useState } from 'react';
 import { Link, useNavigate } from 'react-router-dom';
 
-const LoginPage = ({ onLogin }) => {
+const SignInPage = ({ onLogin }) => {
   const [username, setUsername] = useState('');
   const [password, setPassword] = useState('');
   const navigate = useNavigate();
@@ -59,4 +59,4 @@ const LoginPage = ({ onLogin }) => {
   );
 };
 
-export default LoginPage;
+export default SignInPage;

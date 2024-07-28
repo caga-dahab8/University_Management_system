@@ -3,8 +3,9 @@ import { BrowserRouter as Router, Route, Routes, Navigate } from 'react-router-d
 import FacultyPage from './Pages/Faculty/FacultyPage';
 import StudentPage from './Pages/Students/StudentPage';
 import LoginPage from './Pages/Login/LoginPage';
+import SignUpPage from './Pages/users/SignUpPage';
 import DashboardPage from './Pages/DashboardPage';
-import ProtectedRoute from './Components/ProtectedRoute/ProtectedRoute';
+import ProtectedRoute from './Components/ProtectedRoute';
 import Layout from './Components/Layout/Layout';
 
 const App = () => {
@@ -73,12 +74,13 @@ const App = () => {
     <Router>
       <Routes>
         <Route path="/" element={<LoginPage onLogin={handleLogin} />} />
+        <Route path="/signup" element={<SignUpPage />} />
         <Route
           path="/dashboard"
           element={
             <ProtectedRoute isAuthenticated={isAuthenticated}>
               <Layout isAuthenticated={isAuthenticated} onLogout={handleLogout}>
-                <DashboardPage />
+                <DashboardPage students={students} faculties={faculties} />
               </Layout>
             </ProtectedRoute>
           }
