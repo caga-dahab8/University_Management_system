@@ -1,35 +1,57 @@
 import React from 'react';
 import { Link } from 'react-router-dom';
-import { FontAwesomeIcon } from '@fortawesome/react-fontawesome';
-import { faTachometerAlt, faUserTie, faUserGraduate, faSignOutAlt } from '@fortawesome/free-solid-svg-icons';
+import { FaUserGraduate, FaChalkboardTeacher, FaClipboardList,FaUsers } from 'react-icons/fa';
 
-const Sidebar = ({ onLogout }) => {
+const Sidebar = ({ isSidebarOpen, toggleSidebar, onLogout }) => {
   return (
-    <aside className="w-64 bg-blue-800 text-white h-screen flex flex-col justify-between p-4">
-      <nav className="space-y-4">
-        <Link to="/dashboard" className="block py-2.5 px-4 rounded transition duration-200 hover:bg-blue-600 flex items-center">
-          <FontAwesomeIcon icon={faTachometerAlt} className="mr-3" />
-          Dashboard
-        </Link>
-        <Link to="/faculties" className="block py-2.5 px-4 rounded transition duration-200 hover:bg-blue-600 flex items-center">
-          <FontAwesomeIcon icon={faUserTie} className="mr-3" />
-          Faculties
-        </Link>
-        <Link to="/students" className="block py-2.5 px-4 rounded transition duration-200 hover:bg-blue-600 flex items-center">
-          <FontAwesomeIcon icon={faUserGraduate} className="mr-3" />
-          Students
-        </Link>
-      </nav>
-      <div>
-        <button
-          onClick={onLogout}
-          className="block w-full py-2.5 px-4 rounded transition duration-200 hover:bg-red-600 flex items-center"
-        >
-          <FontAwesomeIcon icon={faSignOutAlt} className="mr-3" />
-          Logout
-        </button>
+    <div className={`fixed inset-y-0 left-0 bg-gray-800 text-white ${isSidebarOpen ? 'w-64' : 'w-16'} transition-all duration-300`}>
+      <div className="flex flex-col h-full">
+        <div className="flex items-center justify-center h-16">
+          <button onClick={toggleSidebar}>
+            {isSidebarOpen ? '<' : '>'}
+          </button>
+        </div>
+        <nav className="flex-1">
+          <ul>
+            <li>
+              <Link to="/dashboard" className="flex items-center px-4 py-2">
+                <FaUsers className="mr-3" />
+                {isSidebarOpen && 'Dashboard'}
+              </Link>
+            </li>
+            <li>
+              <Link to="/faculties" className="flex items-center px-4 py-2">
+                <FaChalkboardTeacher className="mr-3" />
+                {isSidebarOpen && 'Faculties'}
+              </Link>
+            </li>
+            <li>
+              <Link to="/students" className="flex items-center px-4 py-2">
+                <FaUserGraduate className="mr-3" />
+                {isSidebarOpen && 'Students'}
+              </Link>
+            </li>
+            <li>
+              <Link to="/teachers" className="flex items-center px-4 py-2">
+                <FaChalkboardTeacher className="mr-3" />
+                {isSidebarOpen && 'Teachers'}
+              </Link>
+            </li>
+            <li>
+              <Link to="/attendance" className="flex items-center px-4 py-2">
+                <FaClipboardList className="mr-3" />
+                {isSidebarOpen && 'Attendance'}
+              </Link>
+            </li>
+          </ul>
+        </nav>
+        <div className="flex items-center justify-center h-16">
+          <button onClick={onLogout} className="text-red-500">
+            Logout
+          </button>
+        </div>
       </div>
-    </aside>
+    </div>
   );
 };
 

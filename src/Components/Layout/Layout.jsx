@@ -1,25 +1,23 @@
-import React from "react";
-import Header from "../Common/Header";
-import Footer from "../Common/Footer";
-import Sidebar from "../Common/Sidebar";
+import React, { useState } from 'react';
+import Sidebar from '../Common/Sidebar';
+import Header from '../Common/Header';
 
-const Layout = ({ children, isAuthenticated, onLogout }) => {
-    // return (
-    //     <div className="min-h-screen flex flex-col">
-    //         <Header isAuthenticated={isAuthenticated} onLogout={onLogout} />
-    //         <div className="flex flex-1">
-    //         <Sidebar onLogout={onLogout} />
-    //         <main className="flex-1 p-6 bg-gray-100">{children}</main>
-    //         </div>
-    //         <Footer />
-    //     </div>
-        return (
-            <div className="flex">
-              <Sidebar onLogout={onLogout} />
-              <main className="flex-1 p-4">{children}</main>
-            </div>
-          );
-    // );
+const Layout = ({ onLogout, children }) => {
+  const [isCollapsed, setIsCollapsed] = useState(false);
+
+  const handleToggleSidebar = () => {
+    setIsCollapsed(!isCollapsed);
+  };
+
+  return (
+    <div className="flex">
+      <Sidebar isCollapsed={isCollapsed} />
+      <div className="flex-1 flex flex-col">
+        <Header onToggleSidebar={handleToggleSidebar} username="Admin" />
+        <main className="p-4">{children}</main>
+      </div>
+    </div>
+  );
 };
 
 export default Layout;

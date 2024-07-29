@@ -1,33 +1,32 @@
 import React from 'react';
-import { FontAwesomeIcon } from '@fortawesome/react-fontawesome';
-import { faUserGraduate, faUserTie } from '@fortawesome/free-solid-svg-icons';
+import { FaUsers, FaChalkboardTeacher, FaUserGraduate } from 'react-icons/fa';
+import { Link } from 'react-router-dom';
 
-const DashboardPage = ({ students, faculties }) => {
+const DashboardPage = ({ students, faculties, teachers }) => {
   return (
-    <div className="container mx-auto p-4">
-      <h1 className="text-2xl font-bold mb-4">Dashboard</h1>
-      <div className="grid grid-cols-1 md:grid-cols-2 gap-4 mb-6">
-        <div className="bg-white p-6 rounded-lg shadow-md flex items-center">
-          <div className="flex-shrink-0">
-            <FontAwesomeIcon icon={faUserGraduate} className="h-12 w-12 text-blue-600" />
+    <div className="p-8">
+      <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-4 gap-4">
+        <Link to="/faculties" className="bg-white shadow-lg rounded-lg p-4 flex items-center">
+          <FaChalkboardTeacher className="text-blue-500 text-3xl mr-4" />
+          <div>
+            <h2 className="text-xl font-bold">{faculties.length} Faculties</h2>
           </div>
-          <div className="ml-4">
-            <h2 className="text-xl font-bold">Total Students</h2>
-            <p className="text-gray-600">{students.length}</p>
+        </Link>
+        <Link to="/students" className="bg-white shadow-lg rounded-lg p-4 flex items-center">
+          <FaUserGraduate className="text-green-500 text-3xl mr-4" />
+          <div>
+            <h2 className="text-xl font-bold">{students.length} Students</h2>
           </div>
-        </div>
-        <div className="bg-white p-6 rounded-lg shadow-md flex items-center">
-          <div className="flex-shrink-0">
-            <FontAwesomeIcon icon={faUserTie} className="h-12 w-12 text-blue-600" />
+        </Link>
+        <Link to="/teachers" className="bg-white shadow-lg rounded-lg p-4 flex items-center">
+          <FaChalkboardTeacher className="text-yellow-500 text-3xl mr-4" />
+          <div>
+            <h2 className="text-xl font-bold">{teachers.length} Teachers</h2>
           </div>
-          <div className="ml-4">
-            <h2 className="text-xl font-bold">Total Faculties</h2>
-            <p className="text-gray-600">{faculties.length}</p>
-          </div>
-        </div>
+        </Link>
       </div>
-      <div className="flex justify-center">
-        <img src="your-dashboard-image-url" alt="Dashboard" className="max-w-full h-auto" />
+      <div className="mt-8">
+        <img src="path_to_your_image.jpg" alt="Dashboard Image" className="w-full h-auto rounded-lg shadow-lg" />
       </div>
     </div>
   );

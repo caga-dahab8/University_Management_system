@@ -1,33 +1,42 @@
 import React from 'react';
-import { Link, useNavigate } from 'react-router-dom';
+import { useNavigate } from 'react-router-dom';
 
-const Header = ({ isAuthenticated, onLogout }) => {
+const Header = ({ onToggleSidebar, username }) => {
   const navigate = useNavigate();
 
   const handleLogout = () => {
-    onLogout();
     navigate('/');
   };
 
   return (
-    <header className="bg-blue-600 text-white p-4 flex justify-between items-center">
-      <h1 className="text-2xl font-bold">Student Registration System</h1>
-      <nav>
-        {isAuthenticated ? (
-          <button onClick={handleLogout} className="hover:text-gray-300">
-            Logout
-          </button>
-        ) : (
-          <>
-            <Link to="/" className="mr-4 hover:text-gray-300">
-              Login
-            </Link>
-            <Link to="/dashboard" className="hover:text-gray-300">
-              Dashboard
-            </Link>
-          </>
-        )}
-      </nav>
+    <header className="flex justify-between items-center p-4 bg-gray-800 text-white">
+      <button
+        onClick={onToggleSidebar}
+        className="text-xl p-2 rounded hover:bg-gray-700"
+      >
+        &#9776;
+      </button>
+      <div className="flex-1 mx-4">
+        <input
+          type="text"
+          placeholder="Search..."
+          className="w-full p-2 rounded bg-gray-700 text-white focus:outline-none"
+        />
+      </div>
+      <div className="flex items-center">
+        <img
+          src="https://via.placeholder.com/40"
+          alt="User"
+          className="rounded-full w-10 h-10 mr-2"
+        />
+        <span className="mr-4">{username}</span>
+        <button
+          onClick={handleLogout}
+          className="bg-red-500 px-4 py-2 rounded hover:bg-red-600"
+        >
+          Logout
+        </button>
+      </div>
     </header>
   );
 };
