@@ -26,6 +26,7 @@ const App = () => {
   const [studentToEdit, setStudentToEdit] = useState(null);
   const [teacherToEdit, setTeacherToEdit] = useState(null);
   const [isAuthenticated, setIsAuthenticated] = useState(false);
+  const [currentUser, setCurrentUser] = useState(null);
 
   useEffect(() => {
     const storedFaculties = JSON.parse(localStorage.getItem("faculties"));
@@ -36,6 +37,9 @@ const App = () => {
     if (storedStudents) setStudents(storedStudents);
     if (storedTeachers) setTeachers(storedTeachers);
     if (storedAttendance) setAttendance(storedAttendance);
+
+    const storedUser = JSON.parse(localStorage.getItem('user'));
+    if (storedUser) setCurrentUser(storedUser);
   }, []);
 
   const addOrUpdateFaculty = (faculty) => {
@@ -92,17 +96,20 @@ const App = () => {
     localStorage.setItem("teachers", JSON.stringify(newTeachers));
   };
 
-  const handleLogin = () => {
+  const handleLogin = (user) => {
     setIsAuthenticated(true);
+    setCurrentUser(user);
   };
 
   const handleLogout = () => {
     setIsAuthenticated(false);
+    setCurrentUser(null);
   };
 
   const handleRegister = (newUser) => {
-    // Implement your registration logic here
-    console.log('Registered new user:', newUser);
+    // Store the user in localStorage
+    localStorage.setItem('user', JSON.stringify(newUser));
+    setCurrentUser(newUser);
   };
 
   return (
@@ -114,7 +121,11 @@ const App = () => {
           path="/dashboard"
           element={
             <ProtectedRoute isAuthenticated={isAuthenticated}>
-              <Layout onLogout={handleLogout}>
+              <Layout
+                onLogout={handleLogout}
+                username={currentUser?.username}
+                profilePicture={currentUser?.profilePicture}
+              >
                 <DashboardPage
                   students={students}
                   faculties={faculties}
@@ -128,7 +139,11 @@ const App = () => {
           path="/faculties"
           element={
             <ProtectedRoute isAuthenticated={isAuthenticated}>
-              <Layout onLogout={handleLogout}>
+              <Layout
+                onLogout={handleLogout}
+                username={currentUser?.username}
+                profilePicture={currentUser?.profilePicture}
+              >
                 <FacultyPage
                   faculties={faculties}
                   addOrUpdateFaculty={addOrUpdateFaculty}
@@ -144,7 +159,11 @@ const App = () => {
           path="/students"
           element={
             <ProtectedRoute isAuthenticated={isAuthenticated}>
-              <Layout onLogout={handleLogout}>
+              <Layout
+                onLogout={handleLogout}
+                username={currentUser?.username}
+                profilePicture={currentUser?.profilePicture}
+              >
                 <StudentPage
                   faculties={faculties}
                   students={students}
@@ -161,7 +180,11 @@ const App = () => {
           path="/teachers"
           element={
             <ProtectedRoute isAuthenticated={isAuthenticated}>
-              <Layout onLogout={handleLogout}>
+              <Layout
+                onLogout={handleLogout}
+                username={currentUser?.username}
+                profilePicture={currentUser?.profilePicture}
+              >
                 <TeacherPage
                   teachers={teachers}
                   addOrUpdateTeacher={addOrUpdateTeacher}
@@ -177,7 +200,11 @@ const App = () => {
           path="/attendance"
           element={
             <ProtectedRoute isAuthenticated={isAuthenticated}>
-              <Layout onLogout={handleLogout}>
+              <Layout
+                onLogout={handleLogout}
+                username={currentUser?.username}
+                profilePicture={currentUser?.profilePicture}
+              >
                 <AttendancePage
                   students={students}
                   attendance={attendance}

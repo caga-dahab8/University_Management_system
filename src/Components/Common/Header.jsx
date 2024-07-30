@@ -1,13 +1,6 @@
 import React from 'react';
-import { useNavigate } from 'react-router-dom';
 
-const Header = ({ onToggleSidebar, username }) => {
-  const navigate = useNavigate();
-
-  const handleLogout = () => {
-    navigate('/');
-  };
-
+const Header = ({ onToggleSidebar, username, profilePicture }) => {
   return (
     <header className="flex justify-between items-center p-4 bg-gray-800 text-white">
       <button
@@ -24,14 +17,16 @@ const Header = ({ onToggleSidebar, username }) => {
         />
       </div>
       <div className="flex items-center">
-        <img
-          src="https://via.placeholder.com/40"
-          alt="User"
-          className="rounded-full w-10 h-10 mr-2"
-        />
+        {profilePicture && (
+          <img
+            src={profilePicture}
+            alt="User"
+            className="rounded-full w-10 h-10 mr-2"
+          />
+        )}
         <span className="mr-4">{username}</span>
         <button
-          onClick={handleLogout}
+          onClick={onToggleSidebar}
           className="bg-red-500 px-4 py-2 rounded hover:bg-red-600"
         >
           Logout

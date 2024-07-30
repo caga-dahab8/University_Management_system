@@ -10,14 +10,17 @@ const SignUpPage = ({ onRegister }) => {
   const [profilePicture, setProfilePicture] = useState(null);
   const navigate = useNavigate();
 
-  const handleSignUp = (e) => {
+  const handleSignUp = async (e) => {
     e.preventDefault();
+
+    const profilePictureDataURL = profilePicture ? await getDataUrl(profilePicture) : null;
+
     const newUser = {
       fullName,
       username,
       email,
       password,
-      profilePicture,
+      profilePicture: profilePictureDataURL,
     };
 
     // Store user in localStorage
@@ -28,6 +31,14 @@ const SignUpPage = ({ onRegister }) => {
 
   const handleFileChange = (e) => {
     setProfilePicture(e.target.files[0]);
+  };
+
+  const getDataUrl = (file) => {
+    return new Promise((resolve) => {
+      const reader = new FileReader();
+      reader.onload = () => resolve(reader.result);
+      reader.readAsDataURL(file);
+    });
   };
 
   return (

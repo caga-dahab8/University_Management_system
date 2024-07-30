@@ -14,7 +14,7 @@ const SignInPage = ({ onLogin }) => {
 
     if (storedUser && storedUser.username === username && storedUser.password === password) {
       setError('');
-      onLogin();
+      onLogin(storedUser);
       navigate('/dashboard');
     } else {
       setError('Invalid username or password');
