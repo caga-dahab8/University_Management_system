@@ -8,12 +8,14 @@ import {
 import FacultyPage from "./Pages/Faculty/FacultyPage";
 import StudentPage from "./Pages/Students/StudentPage";
 import AttendancePage from "./Pages/Attendance/AttendancePage";
+import ViewAttendancePage from "./Pages/Attendance/ViewAttendancePage";
 import TeacherPage from "./Pages/Teachers/TeacherPage";
-import LoginPage from "./Pages/Login/LoginPage";
-import SignUpPage from "./Pages/users/SignUpPage";
 import DashboardPage from "./Pages/DashboardPage";
-import ProtectedRoute from "./Components/ProtectedRoute";
+import ProtectedRoute from "./Components/ProtectedRoute/ProtectedRoute";
 import Layout from "./Components/Layout/Layout";
+import SignUpPage from "./Pages/Users/SignUpPage"
+import SignInPage from "./Pages/Users/SignInPage"
+
 
 const App = () => {
   const [faculties, setFaculties] = useState([]);
@@ -98,15 +100,21 @@ const App = () => {
     setIsAuthenticated(false);
   };
 
+  const handleRegister = (newUser) => {
+    // Implement your registration logic here
+    console.log('Registered new user:', newUser);
+  };
+
   return (
     <Router>
       <Routes>
-        <Route path="/" element={<LoginPage onLogin={handleLogin} />} />
+        <Route path="/signin" element={<SignInPage onLogin={handleLogin} />} />
+        <Route path="/signup" element={<SignUpPage onRegister={handleRegister} />} />
         <Route
           path="/dashboard"
           element={
             <ProtectedRoute isAuthenticated={isAuthenticated}>
-              <Layout isAuthenticated={isAuthenticated} onLogout={handleLogout}>
+              <Layout onLogout={handleLogout}>
                 <DashboardPage
                   students={students}
                   faculties={faculties}
@@ -120,7 +128,7 @@ const App = () => {
           path="/faculties"
           element={
             <ProtectedRoute isAuthenticated={isAuthenticated}>
-              <Layout isAuthenticated={isAuthenticated} onLogout={handleLogout}>
+              <Layout onLogout={handleLogout}>
                 <FacultyPage
                   faculties={faculties}
                   addOrUpdateFaculty={addOrUpdateFaculty}
@@ -136,7 +144,7 @@ const App = () => {
           path="/students"
           element={
             <ProtectedRoute isAuthenticated={isAuthenticated}>
-              <Layout isAuthenticated={isAuthenticated} onLogout={handleLogout}>
+              <Layout onLogout={handleLogout}>
                 <StudentPage
                   faculties={faculties}
                   students={students}
@@ -153,7 +161,7 @@ const App = () => {
           path="/teachers"
           element={
             <ProtectedRoute isAuthenticated={isAuthenticated}>
-              <Layout isAuthenticated={isAuthenticated} onLogout={handleLogout}>
+              <Layout onLogout={handleLogout}>
                 <TeacherPage
                   teachers={teachers}
                   addOrUpdateTeacher={addOrUpdateTeacher}
@@ -169,7 +177,7 @@ const App = () => {
           path="/attendance"
           element={
             <ProtectedRoute isAuthenticated={isAuthenticated}>
-              <Layout isAuthenticated={isAuthenticated} onLogout={handleLogout}>
+              <Layout onLogout={handleLogout}>
                 <AttendancePage
                   students={students}
                   attendance={attendance}
@@ -179,7 +187,7 @@ const App = () => {
             </ProtectedRoute>
           }
         />
-        <Route path="*" element={<Navigate to="/" />} />
+        <Route path="*" element={<Navigate to="/signin" />} />
       </Routes>
     </Router>
   );

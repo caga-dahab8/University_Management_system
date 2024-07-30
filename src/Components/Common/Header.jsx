@@ -12,7 +12,7 @@ const Header = ({ onToggleSidebar, username }) => {
     <header className="flex justify-between items-center p-4 bg-gray-800 text-white">
       <button
         onClick={onToggleSidebar}
-        className="text-xl p-2 rounded hover:bg-gray-700"
+        className="text-xl p-2 rounded hover:bg-gray-700 text-xl"
       >
         &#9776;
       </button>

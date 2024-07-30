@@ -1,6 +1,8 @@
 import React from 'react';
 import { FaUsers, FaChalkboardTeacher, FaUserGraduate } from 'react-icons/fa';
 import { Link } from 'react-router-dom';
+import dashboardimg from '../Assets/Dashboard.jpg'
+
 
 const DashboardPage = ({ students, faculties, teachers }) => {
   return (
@@ -26,7 +28,7 @@ const DashboardPage = ({ students, faculties, teachers }) => {
         </Link>
       </div>
       <div className="mt-8">
-        <img src="path_to_your_image.jpg" alt="Dashboard Image" className="w-full h-auto rounded-lg shadow-lg" />
+        <img src={dashboardimg} alt="Dashboard Image" className="w-full h-auto rounded-lg shadow-lg" />
       </div>
     </div>
   );

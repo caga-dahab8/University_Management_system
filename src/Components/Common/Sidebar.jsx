@@ -6,16 +6,16 @@ const Sidebar = ({ isSidebarOpen, toggleSidebar, onLogout }) => {
   return (
     <div className={`fixed inset-y-0 left-0 bg-gray-800 text-white transition-all duration-300 ${isSidebarOpen ? 'w-64' : 'w-16'}`}>
       <div className="flex flex-col h-full">
-        <div className="flex items-center justify-between h-16 px-4">
+        {/* <div className="flex items-center justify-between h-16 px-4">
           <button onClick={toggleSidebar} className="text-white">
             <FaBars />
           </button>
           {isSidebarOpen && <span className="text-lg font-bold">Menu</span>}
-        </div>
+        </div> */}
         <nav className="flex-1">
           <ul>
             <li>
-              <Link to="/dashboard" className="flex items-center px-4 py-2 hover:bg-gray-700">
+              <Link to="/dashboard" className="flex items-center px-4 py-2 hover:bg-gray-700 mb-5 mt-2 text-2xl">
                 <FaUsers className="mr-3" />
                 {isSidebarOpen && 'Dashboard'}
               </Link>
