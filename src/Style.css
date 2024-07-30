@@ -1,0 +1,72 @@
+/* styles.css */
+:root {
+    --primary-color: #402E7A; /* For header and sidebar */
+    --secondary-color: #3DC2EC; /* For the rest of the background */
+    --text-color: #FFFFFF; /* Beautiful text color */
+    --text-color-dark: #000000; /* Dark text color for contrast */
+    --header-color: #FF6F61; /* Header color for the table */
+    --table-row-color: #F5F5F5; /* Background color for table rows */
+  }
+  
+  body {
+    background-color: var(--secondary-color);
+    color: var(--text-color-dark);
+  }
+  
+  header, .sidebar {
+    background-color: var(--primary-color);
+    color: var(--text-color);
+  }
+  
+  input, select, button {
+    color: var(--text-color-dark);
+  }
+  
+  input::placeholder, select::placeholder {
+    color: var(--text-color-dark);
+  }
+  
+  table th {
+    background-color: var(--header-color);
+    color: var(--text-color);
+  }
+  
+  table tr:nth-child(even) {
+    background-color: var(--table-row-color);
+  }
+  
+  table tr:nth-child(odd) {
+    background-color: rgb(209, 209, 209);
+  }
+  
+  .search-bar {
+    display: flex;
+    align-items: center;
+    background-color: var(--primary-color);
+    border-radius: 5px;
+    padding: 0.5rem;
+  }
+  
+  .search-bar input {
+    border: none;
+    background-color: transparent;
+    color: var(--text-color);
+    flex: 1;
+  }
+  
+  .search-bar input:focus {
+    outline: #b5eeff;
+  }
+  
+  .search-bar svg {
+    margin-right: 0.5rem;
+    color: var(--text-color);
+  }
+  
+  .stdform,.fform,.tform{
+    background-color: #7acfe9;
+  }
+
+
+
+

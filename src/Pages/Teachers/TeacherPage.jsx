@@ -1,84 +1,65 @@
 import React, { useState } from 'react';
+import TeacherForm from "../../Components/Teachers/TeacherForm";
+import TeacherTable from "../../Components/Teachers/TeacherTable";
 
-const TeacherPage = ({ teachers, addOrUpdateTeacher, deleteTeacher, setTeacherToEdit, teacherToEdit }) => {
-  const [formData, setFormData] = useState({
-    name: '',
-    email: '',
-    department: ''
-  });
+const TeacherPage = ({
+  faculties,
+  teachers,
+  addOrUpdateTeacher,
+  deleteTeacher,
+  setTeacherToEdit,
+  teacherToEdit,
+}) => {
+  const [searchTerm, setSearchTerm] = useState('');
 
-  const [errors, setErrors] = useState({});
-
-  const handleChange = (e) => {
-    setFormData({ ...formData, [e.target.name]: e.target.value });
+  const handleSearchChange = (e) => {
+    setSearchTerm(e.target.value);
   };
 
-  const validateForm = () => {
-    let formErrors = {};
-    Object.keys(formData).forEach((field) => {
-      if (!formData[field]) {
-        formErrors[field] = 'This field is required';
-      }
-    });
-    setErrors(formErrors);
-    return Object.keys(formErrors).length === 0;
-  };
-
-  const handleSubmit = (e) => {
-    e.preventDefault();
-    if (validateForm()) {
-      addOrUpdateTeacher(formData);
-      setFormData({ name: '', email: '', department: '' });
-    }
-  };
+  const filteredTeachers = teachers.filter(teacher =>
+    teacher.fullName.toLowerCase().includes(searchTerm.toLowerCase()) ||
+    teacher.email.toLowerCase().includes(searchTerm.toLowerCase()) ||
+    teacher.phone.toLowerCase().includes(searchTerm.toLowerCase()) ||
+    teacher.degree.toLowerCase().includes(searchTerm.toLowerCase()) ||
+    teacher.faculty.toLowerCase().includes(searchTerm.toLowerCase())
+  );
 
   return (
-    <div className="p-8">
-      <h1 className="text-2xl font-bold mb-6">Teacher Registration</h1>
-      <form onSubmit={handleSubmit} noValidate className="mb-8">
-        {['name', 'email', 'department'].map((field) => (
-          <div className="mb-4" key={field}>
-            <label className="block text-gray-700">
-              {field.charAt(0).toUpperCase() + field.slice(1)} *
-            </label>
-            <input
-              type="text"
-              name={field}
-              value={formData[field]}
-              onChange={handleChange}
-              className={`w-full p-2 border border-gray-300 rounded ${
-                errors[field] ? 'border-red-500' : ''
-              }`}
-            />
-            {errors[field] && <p className="text-red-500 text-xs mt-1">{errors[field]}</p>}
-          </div>
-        ))}
-        <button type="submit" className="w-full p-2 bg-blue-500 text-white rounded hover:bg-blue-600">
-          Register
-        </button>
-      </form>
-      <h2 className="text-xl font-bold mb-4">Registered Teachers</h2>
-      <ul>
-        {teachers.map((teacher) => (
-          <li key={teacher.email} className="mb-2 flex justify-between items-center">
-            <span>{teacher.name} - {teacher.department}</span>
-            <div>
-              <button
-                onClick={() => setTeacherToEdit(teacher)}
-                className="mr-2 p-1 bg-yellow-400 text-white rounded"
-              >
-                Edit
-              </button>
-              <button
-                onClick={() => deleteTeacher(teacher)}
-                className="p-1 bg-red-500 text-white rounded"
-              >
-                Delete
-              </button>
-            </div>
-          </li>
-        ))}
-      </ul>
+    <div className="container mx-auto mt-10">
+      <h1 className="text-3xl font-bold mb-6">Teacher Registration</h1>
+      <TeacherForm
+        faculties={faculties}
+        addOrUpdateTeacher={addOrUpdateTeacher}
+        teacherToEdit={teacherToEdit}
+      />
+      <div className="mb-4 mt-6 flex items-center">
+        <input
+          type="text"
+          value={searchTerm}
+          onChange={handleSearchChange}
+          placeholder="Search..."
+          className="p-2 border border-gray-300 rounded w-full"
+        />
+        <svg
+          className="w-6 h-6 ml-2 text-gray-500"
+          fill="none"
+          stroke="currentColor"
+          viewBox="0 0 24 24"
+          xmlns="http://www.w3.org/2000/svg"
+        >
+          <path
+            strokeLinecap="round"
+            strokeLinejoin="round"
+            strokeWidth="2"
+            d="M21 21l-4.35-4.35m0 0A7.5 7.5 0 1116.65 7.5a7.5 7.5 0 010 10.65z"
+          ></path>
+        </svg>
+      </div>
+      <TeacherTable
+        teachers={filteredTeachers}
+        deleteTeacher={deleteTeacher}
+        setTeacherToEdit={setTeacherToEdit}
+      />
     </div>
   );
 };

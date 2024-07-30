@@ -3,6 +3,7 @@ import ReactDOM from 'react-dom/client'
 import App from './App.jsx'
 import { library } from '@fortawesome/fontawesome-svg-core';
 import { faUserGraduate, faUserTie } from '@fortawesome/free-solid-svg-icons';
+import './Style.css'
 
 library.add(faUserGraduate, faUserTie);
 

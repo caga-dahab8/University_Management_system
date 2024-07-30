@@ -1,7 +1,7 @@
-// src/Pages/Attendance/AttendancePage.jsx
 import React, { useState, useEffect } from 'react';
+import { Link } from 'react-router-dom';
 
-const AttendancePage = ({ faculties, students, attendance, setAttendance }) => {
+const AttendancePage = ({ faculties = [], students = [], attendance, setAttendance }) => {
   const [selectedFaculty, setSelectedFaculty] = useState('');
   const [date, setDate] = useState('');
 
@@ -31,7 +31,8 @@ const AttendancePage = ({ faculties, students, attendance, setAttendance }) => {
     const newAttendanceRecord = {
       date,
       faculty: selectedFaculty,
-      attendance
+      attendance,
+      students: students.filter(student => student.faculty === selectedFaculty)
     };
     storedAttendance.push(newAttendanceRecord);
     localStorage.setItem('attendance', JSON.stringify(storedAttendance));
@@ -67,17 +68,30 @@ const AttendancePage = ({ faculties, students, attendance, setAttendance }) => {
         <div className="mb-4">
           <label className="block text-gray-700">Students:</label>
           {Object.keys(attendance).length > 0 ? (
-            students.filter(student => student.faculty === selectedFaculty).map(student => (
-              <div key={student.id} className="flex items-center">
-                <input
-                  type="checkbox"
-                  checked={attendance[student.id]}
-                  onChange={() => handleAttendanceChange(student.id)}
-                  className="mr-2"
-                />
-                <span>{student.name}</span>
-              </div>
-            ))
+            <table className="min-w-full bg-white">
+              <thead>
+                <tr>
+                  <th className="py-2 px-4 border-b">Student ID</th>
+                  <th className="py-2 px-4 border-b">Full Name</th>
+                  <th className="py-2 px-4 border-b">Present</th>
+                </tr>
+              </thead>
+              <tbody>
+              {students.filter(student => student.faculty === selectedFaculty).map(student => (
+                <tr key={student.id}>
+                  <td className="py-2 px-4 border-b">{student.id}</td>
+                  <td className="py-2 px-4 border-b">{student.firstName} {student.lastName}</td>
+                  <td className="py-2 px-4 border-b">
+                    <input
+                      type="checkbox"
+                      checked={attendance[student.id]}
+                      onChange={() => handleAttendanceChange(student.id)}
+                    />
+                  </td>
+                </tr>
+              ))}
+              </tbody>
+            </table>
           ) : (
             <p>Select a faculty to see students</p>
           )}
@@ -86,6 +100,9 @@ const AttendancePage = ({ faculties, students, attendance, setAttendance }) => {
           Save Attendance
         </button>
       </form>
+      <Link to="/view-attendance" className="mt-4 inline-block bg-green-500 text-white px-4 py-2 rounded">
+        View Attendance Records
+      </Link>
     </div>
   );
 };

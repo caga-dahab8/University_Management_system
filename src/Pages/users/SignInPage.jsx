@@ -1,6 +1,7 @@
 import React, { useState } from 'react';
 import { Link, useNavigate } from 'react-router-dom';
-// import logo from '../Assets/logo.png'; // Adjust the path to your logo
+import login from '../../Assets/login.jpg'
+import logo from '../../Assets/logo.jpg'
 
 const SignInPage = ({ onLogin }) => {
   const [username, setUsername] = useState('');
@@ -26,15 +27,15 @@ const SignInPage = ({ onLogin }) => {
       <div className="flex w-full max-w-4xl bg-white rounded shadow-md">
         <div className="hidden md:block w-1/2">
           <img
-            src="https://via.placeholder.com/300"
+            src={login}
             alt="Phone Mockup"
             className="h-full object-cover"
           />
         </div>
         <div className="w-full md:w-1/2 p-8">
           <div className="text-center mb-8">
-            <img src="https://via.placeholder.com/300" alt="University Logo" className="mx-auto w-20 mb-4" />
-            <h1 className="text-2xl font-bold text-green-600">MyJUST Login</h1>
+            <img src={logo} alt="University Logo" className="mx-auto w-20 mb-4" />
+            <h1 className="text-2xl font-bold text-green-600">SK University Login</h1>
           </div>
           <form onSubmit={handleSignIn}>
             <div className="mb-4">

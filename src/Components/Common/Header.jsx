@@ -2,10 +2,10 @@ import React from 'react';
 
 const Header = ({ onToggleSidebar, username, profilePicture }) => {
   return (
-    <header className="flex justify-between items-center p-4 bg-gray-800 text-white">
+    <header className="flex justify-between items-center p-4 bg-primary-color text-text-color">
       <button
         onClick={onToggleSidebar}
-        className="text-xl p-2 rounded hover:bg-gray-700 text-xl"
+        className="text-xl p-2 rounded hover:bg-secondary-color"
       >
         &#9776;
       </button>
@@ -13,7 +13,7 @@ const Header = ({ onToggleSidebar, username, profilePicture }) => {
         <input
           type="text"
           placeholder="Search..."
-          className="w-full p-2 rounded bg-gray-700 text-white focus:outline-none"
+          className="w-full p-2 rounded bg-secondary-color text-text-color-dark focus:outline-none"
         />
       </div>
       <div className="flex items-center">

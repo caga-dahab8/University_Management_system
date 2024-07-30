@@ -2,26 +2,32 @@ import React from 'react';
 
 const StudentTable = ({ students, deleteStudent, setStudentToEdit }) => {
   return (
-    <div>
-      <h2 className="text-2xl font-bold mt-8 mb-4">Registered Students</h2>
+    <div className="mt-10">
+      <h2 className="text-2xl font-bold mb-4">Registered Students</h2>
       <table className="min-w-full bg-white">
         <thead>
           <tr>
-            <th className="py-2 px-4 border-b border-gray-300">Name</th>
-            <th className="py-2 px-4 border-b border-gray-300">Email</th>
-            <th className="py-2 px-4 border-b border-gray-300">Age</th>
-            <th className="py-2 px-4 border-b border-gray-300">Faculty</th>
-            <th className="py-2 px-4 border-b border-gray-300">Actions</th>
+            <th className="py-2 px-4 border-b">Student ID</th>
+            <th className="py-2 px-4 border-b">Full Name</th>
+            <th className="py-2 px-4 border-b">Email</th>
+            <th className="py-2 px-4 border-b">Date of Birth</th>
+            <th className="py-2 px-4 border-b">Address</th>
+            <th className="py-2 px-4 border-b">Phone</th>
+            <th className="py-2 px-4 border-b">Faculty</th>
+            <th className="py-2 px-4 border-b">Actions</th>
           </tr>
         </thead>
         <tbody>
           {students.map((student, index) => (
-            <tr key={index} className="bg-gray-50 hover:bg-gray-100">
-              <td className="py-2 px-4 border-b border-gray-300">{student.name}</td>
-              <td className="py-2 px-4 border-b border-gray-300">{student.email}</td>
-              <td className="py-2 px-4 border-b border-gray-300">{student.age}</td>
-              <td className="py-2 px-4 border-b border-gray-300">{student.faculty}</td>
-              <td className="py-2 px-4 border-b border-gray-300">
+            <tr key={index}>
+              <td className="py-2 px-4 border-b">{student.id}</td>
+              <td className="py-2 px-4 border-b">{`${student.firstName} ${student.lastName}`}</td>
+              <td className="py-2 px-4 border-b">{student.email}</td>
+              <td className="py-2 px-4 border-b">{student.dob}</td>
+              <td className="py-2 px-4 border-b">{student.address}</td>
+              <td className="py-2 px-4 border-b">{student.phone}</td>
+              <td className="py-2 px-4 border-b">{student.faculty}</td>
+              <td className="py-2 px-4 border-b">
                 <button
                   onClick={() => setStudentToEdit(student)}
                   className="bg-yellow-500 text-white px-2 py-1 rounded mr-2"
@@ -30,7 +36,7 @@ const StudentTable = ({ students, deleteStudent, setStudentToEdit }) => {
                 </button>
                 <button
                   onClick={() => deleteStudent(student)}
-                  className="bg-red-500 text-white px-2 py-1 rounded"
+                  className="bg-red-500 text-white px-2 py-1 rounded mt-1"
                 >
                   Delete
                 </button>

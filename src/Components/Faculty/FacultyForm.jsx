@@ -6,7 +6,7 @@ const FacultyForm = ({ addOrUpdateFaculty, facultyToEdit }) => {
 
   useEffect(() => {
     if (facultyToEdit) {
-      setName(facultyToEdit);
+      setName(facultyToEdit.name);
     } else {
       setName('');
     }
@@ -18,16 +18,16 @@ const FacultyForm = ({ addOrUpdateFaculty, facultyToEdit }) => {
       setError('Faculty name is required');
       return;
     }
-    addOrUpdateFaculty(name);
+    addOrUpdateFaculty({ id: Date.now(), name });
     setName('');
     setError('');
   };
 
   return (
-    <form onSubmit={handleSubmit} className="bg-white p-6 rounded-lg shadow-md">
+    <form onSubmit={handleSubmit} className="bg-white p-6 rounded-lg shadow-md fform">
       <h2 className="text-2xl font-bold mb-4">{facultyToEdit ? 'Edit Faculty' : 'Register Faculty'}</h2>
       <div className="mb-4">
-        <label className="block text-gray-700">Faculty Name:</label>
+        <label className="block text-gray-900">Faculty Name:</label>
         <input
           type="text"
           value={name}
