@@ -5,7 +5,7 @@ The University Management System is a comprehensive application designed to stre
 
 ## Project Lead: Suleiman Said
 ### 📌 Live Demo: [https://university-management-system.onrender.com](https://university-management-system-a4o2.vercel.app/)
-### Frontend Repository: [https://github.com/Suleymaany/University_Management_system](https://github.com/Suleymaany/University_Management_system)
+### Full-Stack Repository: [https://github.com/Suleymaany/University_Management_system](https://github.com/Suleymaany/University_Management_system)
 
 ## Project Images
 
