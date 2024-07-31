@@ -2,7 +2,7 @@ import React from 'react';
 
 const TeacherTable = ({ teachers, deleteTeacher, setTeacherToEdit }) => {
   return (
-    <table className="min-w-full bg-white mt-4">
+    <table className="teachertable min-w-full bg-white mt-4">
       <thead>
         <tr>
           <th className="py-2 px-4 border-b">Full Name</th>

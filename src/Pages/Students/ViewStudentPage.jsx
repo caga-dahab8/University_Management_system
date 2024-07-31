@@ -44,7 +44,7 @@ const ViewStudentPage = ({ faculties, students, deleteStudent }) => {
   });
 
   return (
-    <div className="container mx-auto mt-10">
+    <div className="viewstudentpage container mx-auto mt-10">
       <h1 className="text-3xl font-bold mb-6">View Students</h1>
       <div className="mb-4">
         <label className="block text-gray-700">Select Faculty:</label>

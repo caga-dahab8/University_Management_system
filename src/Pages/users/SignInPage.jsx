@@ -23,7 +23,7 @@ const SignInPage = ({ onLogin }) => {
   };
 
   return (
-    <div className="min-h-screen flex items-center justify-center bg-gray-100">
+    <div className="siginpage min-h-screen flex items-center justify-center bg-gray-100">
       <div className="flex w-full max-w-4xl bg-white rounded shadow-md">
         <div className="hidden md:block w-1/2">
           <img

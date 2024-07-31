@@ -13,7 +13,7 @@ const Layout = ({ onLogout, children, username, profilePicture }) => {
   };
 
   return (
-    <div className="flex">
+    <div className="layout flex">
       <Sidebar isSidebarOpen={isSidebarOpen} toggleSidebar={toggleSidebar} onLogout={onLogout} />
       <div className={`flex-1 transition-all duration-300 ${isSidebarOpen ? 'ml-64' : 'ml-16'}`}>
         <Header onToggleSidebar={toggleSidebar} username={username} profilePicture={profilePicture} />

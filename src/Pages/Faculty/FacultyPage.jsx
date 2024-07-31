@@ -3,7 +3,7 @@ import FacultyForm from '../../Components/Faculty/FacultyForm';
 
 const FacultyPage = ({ faculties, addOrUpdateFaculty, deleteFaculty, setFacultyToEdit, facultyToEdit }) => {
   return (
-    <div className="container mx-auto mt-10">
+    <div className="facultypage container mx-auto mt-10">
       <h1 className="text-3xl font-bold mb-6">Faculty Registration</h1>
       <FacultyForm addOrUpdateFaculty={addOrUpdateFaculty} facultyToEdit={facultyToEdit} />
       <h2 className="text-2xl font-bold mt-8 mb-4">Registered Faculties</h2>

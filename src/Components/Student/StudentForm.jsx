@@ -71,7 +71,7 @@ const StudentForm = ({ faculties, addOrUpdateStudent, studentToEdit }) => {
   };
 
   return (
-    <form onSubmit={handleSubmit} className="bg-white p-6 rounded-lg shadow-md stdform">
+    <form onSubmit={handleSubmit} className="studentform bg-white p-6 rounded-lg shadow-md stdform">
       <h2 className="text-2xl font-bold mb-4">{studentToEdit ? 'Edit Student' : 'Register Student'}</h2>
       <div className="grid grid-cols-1 md:grid-cols-2 gap-4">
         <div className="mb-4">

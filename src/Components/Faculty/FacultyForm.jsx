@@ -24,7 +24,7 @@ const FacultyForm = ({ addOrUpdateFaculty, facultyToEdit }) => {
   };
 
   return (
-    <form onSubmit={handleSubmit} className="bg-white p-6 rounded-lg shadow-md fform">
+    <form onSubmit={handleSubmit} className="facultyform bg-white p-6 rounded-lg shadow-md fform">
       <h2 className="text-2xl font-bold mb-4">{facultyToEdit ? 'Edit Faculty' : 'Register Faculty'}</h2>
       <div className="mb-4">
         <label className="block text-gray-900">Faculty Name:</label>

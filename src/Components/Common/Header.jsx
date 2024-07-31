@@ -2,7 +2,7 @@ import React from 'react';
 
 const Header = ({ onToggleSidebar, username, profilePicture }) => {
   return (
-    <header className="flex justify-between items-center p-4 bg-primary-color text-text-color">
+    <header className="header flex justify-between items-center p-4 bg-primary-color text-text-color">
       <button
         onClick={onToggleSidebar}
         className="text-xl p-2 rounded hover:bg-secondary-color"

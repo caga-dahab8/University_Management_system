@@ -40,7 +40,7 @@ const AttendancePage = ({ faculties = [], students = [], attendance, setAttendan
   };
 
   return (
-    <div className="container mx-auto mt-10">
+    <div className="attendance container mx-auto mt-10">
       <h1 className="text-3xl font-bold mb-6">Mark Attendance</h1>
       <form onSubmit={handleSubmit}>
         <div className="mb-4">

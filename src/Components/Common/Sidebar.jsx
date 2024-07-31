@@ -4,7 +4,7 @@ import { FaChalkboardTeacher, FaUserGraduate, FaUsers, FaClipboardList, FaBars }
 
 const Sidebar = ({ isSidebarOpen, toggleSidebar, onLogout }) => {
   return (
-    <div className={`fixed inset-y-0 left-0 bg-gray-800 text-white transition-all duration-300 ${isSidebarOpen ? 'w-64' : 'w-16'}`}>
+    <div className={`sidebar fixed inset-y-0 left-0 bg-gray-800 text-white transition-all duration-300 ${isSidebarOpen ? 'w-64' : 'w-16'}`}>
       <div className="flex flex-col h-full">
         <nav className="flex-1">
           <ul>

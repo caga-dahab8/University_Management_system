@@ -16,8 +16,10 @@ import DashboardPage from "./Pages/DashboardPage";
 import AboutMePage from "./Pages/AboutMePage";
 import ProtectedRoute from "./Components/ProtectedRoute/ProtectedRoute";
 import Layout from "./Components/Layout/Layout";
-import SignUpPage from "./Pages/Users/SignUpPage";
-import SignInPage from "./Pages/Users/SignInPage";
+// import SignUpPage from "./Pages/Users/SignUpPage";
+// import SignInPage from "./Pages/Users/SignInPage";
+import SignInPage from "./Pages/users/SignInPage";
+import SignUpPage from "./Pages/users/SignUpPage";
 
 const App = () => {
   const [faculties, setFaculties] = useState([]);

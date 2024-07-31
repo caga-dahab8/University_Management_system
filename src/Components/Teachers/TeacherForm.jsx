@@ -51,7 +51,7 @@ const TeacherForm = ({ faculties = [], addOrUpdateTeacher, teacherToEdit }) => {
   };
 
   return (
-    <form onSubmit={handleSubmit} className="bg-white p-6 rounded-lg shadow-md tform">
+    <form onSubmit={handleSubmit} className="teacherform bg-white p-6 rounded-lg shadow-md tform">
       <h2 className="text-2xl font-bold mb-4">{teacherToEdit ? 'Edit Teacher' : 'Register Teacher'}</h2>
       <div className="grid grid-cols-2 gap-4">
         <div className="mb-4">

@@ -25,7 +25,7 @@ const TeacherPage = ({
   );
 
   return (
-    <div className="container mx-auto mt-10">
+    <div className="Teacherpage container mx-auto mt-10">
       <h1 className="text-3xl font-bold mb-6">Teacher Registration</h1>
       <TeacherForm
         faculties={faculties}

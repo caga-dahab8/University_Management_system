@@ -42,7 +42,7 @@ const SignUpPage = ({ onRegister }) => {
   };
 
   return (
-    <div className="min-h-screen flex items-center justify-center bg-gray-100">
+    <div className="signuppage min-h-screen flex items-center justify-center bg-gray-100">
       <div className="w-full max-w-md bg-white rounded shadow-md p-8">
         <div className="text-center mb-8">
           <img src={logo} alt="University Logo" className="mx-auto w-20 mb-4" />
@@ -89,7 +89,7 @@ const SignUpPage = ({ onRegister }) => {
               value={password}
               onChange={(e) => setPassword(e.target.value)}
               className="w-full shadow appearance-none border border-red-500 rounded w-full py-2 px-3 text-gray-700 mb-3 leading-tight focus:outline-none focus:shadow-outline focus:bg-white focus:border-purple-500"
-              placeholder="***************"
+              placeholder="**********"
               required
             />
           </div>

@@ -4,7 +4,7 @@ import { Link } from 'react-router-dom';
 
 const DashboardPage = ({ students, faculties, teachers }) => {
   return (
-    <div className="p-8">
+    <div className="dashboard p-8">
       <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-4 gap-4 tform shadow-2xl p-4 text-blue-600">
         <Link to="/faculties" className="bg-white shadow-lg rounded-lg p-4 flex items-center">
           <FaChalkboardTeacher className="text-blue-500 text-3xl mr-4" />
