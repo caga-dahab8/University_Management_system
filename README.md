@@ -1,37 +1,48 @@
-# University Management System
+# carwo Ecommerce
 
-Welcome to the University Management System, a comprehensive application designed to streamline the management of university operations including student registration, faculty management, attendance tracking, and more.
+## 📌 Live Demo
+### Weblink: [Live Website](https://multimart-ecommerce.onrender.com/)
 
-## Table of Contents
+## 😎 Features
 
-- [Features](#features)
-- [Installation](#installation)
-- [Usage](#usage)
-- [Technologies Used](#technologies-used)
-- [Project Structure](#project-structure)
-- [License](#license)
+- Beauty UI similar to ecommerce website
+- Fully responsive and mobile friendly
+- User can add items to cart
+- User can view details of an item
+- User can show total price in cart
+- In Item page user can add quantity of item to cart instead of click add more and more 
 
-## Features
+## 🚀 What technologies were used?
 
-- **User Authentication**: Sign up and Sign in functionalities.
-- **Dashboard**: Overview of faculties, students, teachers, awards, and revenue.
-- **Faculty Management**: Add, update, and delete faculty information.
-- **Student Management**: Add, update, delete, and view student information.
-- **Teacher Management**: Add, update, delete, and view teacher information.
-- **Attendance Tracking**: Mark and view student attendance.
-- **Responsive Design**: Optimized for desktop, tablet, and mobile devices.
-- **About Page**: Personal information and motivational message.
+- react.js (create-react-app)
+- react-dom-router
+- react-bootstrap
+- state management using Redux Toolkit
 
-## Installation
+## How can you clone and tweak this project?
 
-### Prerequisites
+From your command line, first clone this repo:
 
-- Node.js
-- npm (Node Package Manager)
-- Git
+```
+# Clone this repository
+$ https://github.com/0mar-helal/multimart-react-ecommerce.git
 
-### Steps
+# Go into the repository
+$ cd multimart-react-ecommerce
 
-1. Clone the repository:
-   ```bash
-   git clone https://github.com/Suleymaany/University_Management_system.git
+# Remove current origin repository
+$ git remote remove origin
+
+```
+
+Then you can install the dependencies using NPM:
+
+```
+# Install dependencies
+$ npm install
+
+# Start development server
+$ npm start
+```
+👨‍💻 Happy coding!
+---
