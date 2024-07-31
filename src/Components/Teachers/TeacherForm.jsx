@@ -60,7 +60,8 @@ const TeacherForm = ({ faculties = [], addOrUpdateTeacher, teacherToEdit }) => {
             type="text"
             value={fullName}
             onChange={(e) => setFullName(e.target.value)}
-            className={`mt-1 p-2 border ${errors.fullName ? 'border-red-500' : 'border-gray-300'} rounded w-full`}
+            className={`mt-1 p-2 border ${errors.fullName ? 'border-red-500' : 'border-gray-300'} shadow appearance-none border rounded w-full py-2 px-3 text-gray-700 leading-tight focus:outline-none focus:shadow-outline focus:bg-white focus:border-puurple-900`}
+            placeholder='Name'
           />
           {errors.fullName && <p className="text-red-500 text-sm mt-1">{errors.fullName}</p>}
         </div>
@@ -70,7 +71,8 @@ const TeacherForm = ({ faculties = [], addOrUpdateTeacher, teacherToEdit }) => {
             type="email"
             value={email}
             onChange={(e) => setEmail(e.target.value)}
-            className={`mt-1 p-2 border ${errors.email ? 'border-red-500' : 'border-gray-300'} rounded w-full`}
+            className={`mt-1 p-2 border ${errors.email ? 'border-red-500' : 'border-gray-300'} shadow appearance-none border rounded w-full py-2 px-3 text-gray-700 leading-tight focus:outline-none focus:shadow-outline focus:bg-white focus:border-puurple-900`}
+            placeholder='Email'
           />
           {errors.email && <p className="text-red-500 text-sm mt-1">{errors.email}</p>}
         </div>
@@ -80,7 +82,8 @@ const TeacherForm = ({ faculties = [], addOrUpdateTeacher, teacherToEdit }) => {
             type="text"
             value={phone}
             onChange={(e) => setPhone(e.target.value)}
-            className={`mt-1 p-2 border ${errors.phone ? 'border-red-500' : 'border-gray-300'} rounded w-full`}
+            className={`mt-1 p-2 border ${errors.phone ? 'border-red-500' : 'border-gray-300'} shadow appearance-none border rounded w-full py-2 px-3 text-gray-700 leading-tight focus:outline-none focus:shadow-outline focus:bg-white focus:border-puurple-900`}
+            placeholder='Tell'
           />
           {errors.phone && <p className="text-red-500 text-sm mt-1">{errors.phone}</p>}
         </div>
@@ -90,7 +93,8 @@ const TeacherForm = ({ faculties = [], addOrUpdateTeacher, teacherToEdit }) => {
             type="text"
             value={degree}
             onChange={(e) => setDegree(e.target.value)}
-            className={`mt-1 p-2 border ${errors.degree ? 'border-red-500' : 'border-gray-300'} rounded w-full`}
+            className={`mt-1 p-2 border ${errors.degree ? 'border-red-500' : 'border-gray-300'} shadow appearance-none border rounded w-full py-2 px-3 text-gray-700 leading-tight focus:outline-none focus:shadow-outline focus:bg-white focus:border-puurple-900`}
+            placeholder='Degree'
           />
           {errors.degree && <p className="text-red-500 text-sm mt-1">{errors.degree}</p>}
         </div>

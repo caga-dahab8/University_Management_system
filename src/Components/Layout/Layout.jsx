@@ -3,6 +3,7 @@ import { Link } from 'react-router-dom';
 import { FaChalkboardTeacher, FaUserGraduate, FaUsers, FaClipboardList, FaBars, FaSignOutAlt } from 'react-icons/fa';
 import Sidebar from '../Common/Sidebar';
 import Header from '../Common/Header';
+import Footer from '../Common/Footer';
 
 const Layout = ({ onLogout, children, username, profilePicture }) => {
   const [isSidebarOpen, setIsSidebarOpen] = useState(true);
@@ -19,6 +20,7 @@ const Layout = ({ onLogout, children, username, profilePicture }) => {
         <main className="p-8">
           {children}
         </main>
+        <Footer/>
       </div>
     </div>
   );

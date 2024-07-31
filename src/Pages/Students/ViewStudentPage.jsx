@@ -69,7 +69,7 @@ const ViewStudentPage = ({ faculties, students, deleteStudent }) => {
             value={searchTerm}
             onChange={handleSearchChange}
             placeholder="Search..."
-            className="mt-1 p-2 border border-gray-300 rounded w-full"
+            className="shadow appearance-none border rounded w-full py-2 px-3 text-gray-700 leading-tight focus:outline-none focus:shadow-outline focus:bg-white focus:border-puurple-900"
           />
           <span className="absolute inset-y-0 right-4 flex items-center">
             <svg className="w-5 h-5 text-gray-500" fill="currentColor" viewBox="0 0 20 20">

@@ -1,3 +1,4 @@
+// src/App.jsx
 import React, { useState, useEffect } from "react";
 import {
   BrowserRouter as Router,
@@ -12,6 +13,7 @@ import ViewAttendancePage from "./Pages/Attendance/ViewAttendancePage";
 import ViewStudentPage from "./Pages/Students/ViewStudentPage";
 import TeacherPage from "./Pages/Teachers/TeacherPage";
 import DashboardPage from "./Pages/DashboardPage";
+import AboutMePage from "./Pages/AboutMePage";
 import ProtectedRoute from "./Components/ProtectedRoute/ProtectedRoute";
 import Layout from "./Components/Layout/Layout";
 import SignUpPage from "./Pages/Users/SignUpPage";
@@ -204,6 +206,16 @@ const App = () => {
             <ProtectedRoute isAuthenticated={isAuthenticated}>
               <Layout isAuthenticated={isAuthenticated} onLogout={handleLogout}>
                 <ViewAttendancePage faculties={faculties} students={students} />
+              </Layout>
+            </ProtectedRoute>
+          }
+        />
+        <Route
+          path="/about-me"
+          element={
+            <ProtectedRoute isAuthenticated={isAuthenticated}>
+              <Layout isAuthenticated={isAuthenticated} onLogout={handleLogout}>
+                <AboutMePage />
               </Layout>
             </ProtectedRoute>
           }
