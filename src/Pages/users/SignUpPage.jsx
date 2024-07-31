@@ -1,6 +1,6 @@
 import React, { useState } from 'react';
-import { useNavigate,Link } from 'react-router-dom';
-import logo from '../../Assets/logo.jpg'
+import { useNavigate, Link } from 'react-router-dom';
+import logo from '../../Assets/logo.jpg';
 
 const SignUpPage = ({ onRegister }) => {
   const [fullName, setFullName] = useState('');
@@ -25,8 +25,10 @@ const SignUpPage = ({ onRegister }) => {
 
     // Store user in localStorage
     localStorage.setItem('user', JSON.stringify(newUser));
-    onRegister(newUser);
-    navigate('/dashboard');
+    if (onRegister) {
+      onRegister(newUser);
+    }
+    navigate('/signin'); // Redirect to the sign-in page
   };
 
   const handleFileChange = (e) => {
@@ -101,12 +103,14 @@ const SignUpPage = ({ onRegister }) => {
               className="w-full border border-sky-300 rounded px-3 py-2 bg-primary"
             />
           </div>
-          <button
-            type="submit"
-            className="w-full bg-transparent hover:bg-blue-500 text-blue-700 font-semibold hover:text-white py-2 px-4 border border-blue-500 hover:border-transparent rounded"
-          >
-            SIGN UP
-          </button>
+          <Link to="/signin">
+            <button
+              type="submit"
+              className="w-full bg-transparent hover:bg-blue-500 text-blue-700 font-semibold hover:text-white py-2 px-4 border border-blue-500 hover:border-transparent rounded"
+            >
+              SIGN UP
+            </button>
+            </Link>
         </form>
         <div className="text-center mt-4">
           <p>
