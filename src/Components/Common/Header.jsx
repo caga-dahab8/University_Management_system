@@ -25,12 +25,6 @@ const Header = ({ onToggleSidebar, username, profilePicture }) => {
           />
         )}
         <span className="mr-4">{username}</span>
-        <button
-          onClick={onToggleSidebar}
-          className="bg-red-500 px-4 py-2 rounded hover:bg-red-600"
-        >
-          Logout
-        </button>
       </div>
     </header>
   );
