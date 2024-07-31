@@ -4,7 +4,7 @@
 The University Management System is a comprehensive application designed to streamline and automate various administrative and academic processes within a university. Users can manage student and teacher registrations, faculties, attendance, and more, making it an essential tool for modern educational institutions.
 
 ## Project Lead: Suleiman Said
-### 📌 Live Demo: [[https://university-management-system.onrender.com](https://university-management-system-a4o2.vercel.app/)](https://university-management-system-a4o2.vercel.app/)
+### 📌 Live Demo: [https://university-management-system.onrender.com](https://university-management-system-a4o2.vercel.app/)
 ### Frontend Repository: [https://github.com/Suleymaany/University_Management_system](https://github.com/Suleymaany/University_Management_system)
 
 ## Project Images
@@ -20,9 +20,9 @@ The University Management System is a comprehensive application designed to stre
 ## Built With
 
 <p float="left">
-  <img src="https://github.com/user-attachments/assets/4ce8edfc-0f81-4563-8465-e93738c95e2f" alt="React" width="100" />
-  <img src="https://github.com/user-attachments/assets/867df9ad-5fbf-4ca7-807e-174adbe00247" alt="Node.js" width="100" />
-  <img src="https://www.bing.com/images/search?view=detailV2&ccid=LOZctQTR&id=18FBA4EEFE10576094395D42E079A4208B447F21&thid=OIP.LOZctQTRjEnOcFUtVBaj-AHaDm&mediaurl=https%3a%2f%2fmiro.medium.com%2fmax%2f1400%2f1*_6ooq0R60ba3UT5c-QVemA.png&cdnurl=https%3a%2f%2fth.bing.com%2fth%2fid%2fR.2ce65cb504d18c49ce70552d5416a3f8%3frik%3dIX9EiyCkeeBCXQ%26pid%3dImgRaw%26r%3d0&exph=660&expw=1360&q=tailwind+css+cdn&simid=608032297486525754&FORM=IRPRST&ck=77A25649AE234D28C255DACB365AFAB1&selectedIndex=4&itb=0" alt="TailwindCss" width="100" />
+  <img src="https://github.com/user-attachments/assets/d9578a40-4276-4644-b966-e8f96dfdad2d" alt="React" width="100" />
+  <img src="https://github.com/user-attachments/assets/35465a6a-0285-40b1-80bb-2d94cf63f569" alt="Node.js" width="100" />
+  <img src="https://github.com/user-attachments/assets/d31b60ad-b548-4004-bc26-38abe33aae03" alt="TailwindCss" width="100" />
 </p>
 
 ## Features
