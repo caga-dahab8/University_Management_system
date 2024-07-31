@@ -34,4 +34,4 @@ Welcome to the University Management System, a comprehensive application designe
 
 1. Clone the repository:
    ```bash
-   git clone https://github.com/your-username/university-management-system.git
+   git clone https://github.com/Suleymaany/University_Management_system.git
