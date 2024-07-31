@@ -44,7 +44,8 @@ const SignInPage = ({ onLogin }) => {
                 type="text"
                 value={username}
                 onChange={(e) => setUsername(e.target.value)}
-                className="w-full border border-gray-300 rounded px-3 py-2"
+                className="w-full shadow appearance-none border rounded w-full py-2 px-3 text-gray-700 leading-tight focus:outline-none focus:shadow-outline focus:bg-white focus:border-sky-300"
+                placeholder="Username"
                 required
               />
             </div>
@@ -54,14 +55,15 @@ const SignInPage = ({ onLogin }) => {
                 type="password"
                 value={password}
                 onChange={(e) => setPassword(e.target.value)}
-                className="w-full border border-gray-300 rounded px-3 py-2"
+                className="w-full shadow appearance-none border border-red-500 rounded w-full py-2 px-3 text-gray-700 mb-3 leading-tight focus:outline-none focus:shadow-outline focus:bg-white focus:border-purple-500"
+                placeholder="***************"
                 required
               />
             </div>
             {error && <p className="text-red-500 text-xs mb-4">{error}</p>}
             <button
               type="submit"
-              className="w-full bg-blue-500 text-white py-2 rounded hover:bg-blue-600"
+              className="w-full bg-transparent hover:bg-blue-500 text-blue-700 font-semibold hover:text-white py-2 px-4 border border-blue-500 hover:border-transparent rounded"
             >
               SIGN IN
             </button>

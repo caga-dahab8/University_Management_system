@@ -54,9 +54,6 @@
     flex: 1;
   }
   
-  .search-bar input:focus {
-    outline: #b5eeff;
-  }
   
   .search-bar svg {
     margin-right: 0.5rem;

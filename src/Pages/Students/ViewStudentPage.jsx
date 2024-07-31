@@ -85,10 +85,10 @@ const ViewStudentPage = ({ faculties, students, deleteStudent }) => {
       <table className="min-w-full bg-white shadow-md rounded-lg overflow-hidden">
         <thead>
           <tr>
-            <th className="py-2 px-4 bg-blue-600 text-white">Student ID</th>
-            <th className="py-2 px-4 bg-blue-600 text-white">Full Name</th>
-            <th className="py-2 px-4 bg-blue-600 text-white">Email</th>
-            <th className="py-2 px-4 bg-blue-600 text-white">Date of Birth</th>
+            <th className="py-2 px-4 bg-blue-600 text-white">ID</th>
+            <th className="py-2 px-4 bg-blue-600 text-white">Name</th>
+            {/* <th className="py-2 px-4 bg-blue-600 text-white">Email</th> */}
+            {/* <th className="py-2 px-4 bg-blue-600 text-white">DOB</th> */}
             <th className="py-2 px-4 bg-blue-600 text-white">Address</th>
             <th className="py-2 px-4 bg-blue-600 text-white">Phone</th>
             <th className="py-2 px-4 bg-blue-600 text-white">Faculty</th>
@@ -100,8 +100,8 @@ const ViewStudentPage = ({ faculties, students, deleteStudent }) => {
             <tr key={student.id} className="bg-blue-200 hover:bg-blue-300">
               <td className="py-2 px-4 border-b border-gray-200">{student.id}</td>
               <td className="py-2 px-4 border-b border-gray-200">{`${student.firstName} ${student.lastName}`}</td>
-              <td className="py-2 px-4 border-b border-gray-200">{student.email}</td>
-              <td className="py-2 px-4 border-b border-gray-200">{student.dob}</td>
+              {/* <td className="py-2 px-4 border-b border-gray-200">{student.email}</td> */}
+              {/* <td className="py-2 px-4 border-b border-gray-200">{student.dob}</td> */}
               <td className="py-2 px-4 border-b border-gray-200">{student.address}</td>
               <td className="py-2 px-4 border-b border-gray-200">{student.phone}</td>
               <td className="py-2 px-4 border-b border-gray-200">{student.faculty}</td>

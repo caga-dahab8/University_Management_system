@@ -5,7 +5,7 @@ import { Link } from 'react-router-dom';
 const DashboardPage = ({ students, faculties, teachers }) => {
   return (
     <div className="p-8">
-      <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-4 gap-4 tform shadow-2xl p-4">
+      <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-4 gap-4 tform shadow-2xl p-4 text-blue-600">
         <Link to="/faculties" className="bg-white shadow-lg rounded-lg p-4 flex items-center">
           <FaChalkboardTeacher className="text-blue-500 text-3xl mr-4" />
           <div>
@@ -36,7 +36,7 @@ const DashboardPage = ({ students, faculties, teachers }) => {
         </div>
       </div>
 
-      <div className="bg-white p-6 rounded shadow-md mb-6 mt-10">
+      <div className="bg-white p-6 rounded shadow-md mb-6 mt-10 tform">
         <h2 className="text-2xl font-bold mb-4">Star Students</h2>
         <table className="min-w-full bg-white">
           <thead>
@@ -88,7 +88,7 @@ const DashboardPage = ({ students, faculties, teachers }) => {
         </table>
       </div>
 
-      <div className="bg-white p-6 rounded shadow-md">
+      <div className="bg-white p-6 rounded shadow-md tform text-gray-900">
         <h2 className="text-2xl font-bold mb-4">Student Activity</h2>
         <ul>
           <li className="flex justify-between py-2 border-b">

@@ -7,11 +7,11 @@ const StudentTable = ({ students, deleteStudent, setStudentToEdit }) => {
       <table className="min-w-full bg-white">
         <thead>
           <tr>
-            <th className="py-2 px-4 border-b">Student ID</th>
-            <th className="py-2 px-4 border-b">Full Name</th>
-            <th className="py-2 px-4 border-b">Email</th>
-            <th className="py-2 px-4 border-b">Date of Birth</th>
-            <th className="py-2 px-4 border-b">Address</th>
+            <th className="py-2 px-4 border-b">ID</th>
+            <th className="py-2 px-4 border-b">Name</th>
+            {/* <th className="py-2 px-4 border-b">Email</th> */}
+            {/* <th className="py-2 px-4 border-b">DOB</th> */}
+            <th className="py-2 px-4 border-b">Location</th>
             <th className="py-2 px-4 border-b">Phone</th>
             <th className="py-2 px-4 border-b">Faculty</th>
             <th className="py-2 px-4 border-b">Actions</th>
@@ -22,8 +22,8 @@ const StudentTable = ({ students, deleteStudent, setStudentToEdit }) => {
             <tr key={index}>
               <td className="py-2 px-4 border-b">{student.id}</td>
               <td className="py-2 px-4 border-b">{`${student.firstName} ${student.lastName}`}</td>
-              <td className="py-2 px-4 border-b">{student.email}</td>
-              <td className="py-2 px-4 border-b">{student.dob}</td>
+              {/* <td className="py-2 px-4 border-b">{student.email}</td> */}
+              {/* <td className="py-2 px-4 border-b">{student.dob}</td> */}
               <td className="py-2 px-4 border-b">{student.address}</td>
               <td className="py-2 px-4 border-b">{student.phone}</td>
               <td className="py-2 px-4 border-b">{student.faculty}</td>

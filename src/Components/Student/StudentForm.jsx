@@ -80,7 +80,8 @@ const StudentForm = ({ faculties, addOrUpdateStudent, studentToEdit }) => {
             type="text"
             value={firstName}
             onChange={(e) => setFirstName(e.target.value)}
-            className={`mt-1 p-2 border ${errors.firstName ? 'border-red-500' : 'border-gray-300'} rounded w-full`}
+            className={`mt-1 p-2 border ${errors.firstName ? 'border-red-500' : 'border-gray-300'} shadow appearance-none border rounded w-full py-2 px-3 text-gray-700 leading-tight focus:outline-none focus:shadow-outline focus:bg-white focus:border-purple-900`}
+            placeholder='Firstname'
           />
           {errors.firstName && <p className="text-red-500 text-sm mt-1">{errors.firstName}</p>}
         </div>
@@ -90,7 +91,8 @@ const StudentForm = ({ faculties, addOrUpdateStudent, studentToEdit }) => {
             type="text"
             value={lastName}
             onChange={(e) => setLastName(e.target.value)}
-            className={`mt-1 p-2 border ${errors.lastName ? 'border-red-500' : 'border-gray-300'} rounded w-full`}
+            className={`mt-1 p-2 border ${errors.lastName ? 'border-red-500' : 'border-gray-300'} shadow appearance-none border rounded w-full py-2 px-3 text-gray-700 leading-tight focus:outline-none focus:shadow-outline focus:bg-white focus:border-purple-900`}
+            placeholder='Lastname'
           />
           {errors.lastName && <p className="text-red-500 text-sm mt-1">{errors.lastName}</p>}
         </div>
@@ -100,7 +102,8 @@ const StudentForm = ({ faculties, addOrUpdateStudent, studentToEdit }) => {
             type="email"
             value={email}
             onChange={(e) => setEmail(e.target.value)}
-            className={`mt-1 p-2 border ${errors.email ? 'border-red-500' : 'border-gray-300'} rounded w-full`}
+            className={`mt-1 p-2 border ${errors.email ? 'border-red-500' : 'border-gray-300'} shadow appearance-none border rounded w-full py-2 px-3 text-gray-700 leading-tight focus:outline-none focus:shadow-outline focus:bg-white focus:border-purple-900`}
+            placeholder='Email'
           />
           {errors.email && <p className="text-red-500 text-sm mt-1">{errors.email}</p>}
         </div>
@@ -110,7 +113,8 @@ const StudentForm = ({ faculties, addOrUpdateStudent, studentToEdit }) => {
             type="text"
             value={address}
             onChange={(e) => setAddress(e.target.value)}
-            className={`mt-1 p-2 border ${errors.address ? 'border-red-500' : 'border-gray-300'} rounded w-full`}
+            className={`mt-1 p-2 border ${errors.address ? 'border-red-500' : 'border-gray-300'} shadow appearance-none border rounded w-full py-2 px-3 text-gray-700 leading-tight focus:outline-none focus:shadow-outline focus:bg-white focus:border-purple-900`}
+            placeholder='Address'
           />
           {errors.address && <p className="text-red-500 text-sm mt-1">{errors.address}</p>}
         </div>
@@ -120,7 +124,8 @@ const StudentForm = ({ faculties, addOrUpdateStudent, studentToEdit }) => {
             type="date"
             value={dob}
             onChange={(e) => setDob(e.target.value)}
-            className={`mt-1 p-2 border ${errors.dob ? 'border-red-500' : 'border-gray-300'} rounded w-full`}
+            className={`mt-1 p-2 border ${errors.dob ? 'border-red-500' : 'border-gray-300'} shadow appearance-none border rounded w-full py-2 px-3 text-gray-700 leading-tight focus:outline-none focus:shadow-outline focus:bg-white focus:border-purple-900`}
+            placeholder='DOB'
           />
           {errors.dob && <p className="text-red-500 text-sm mt-1">{errors.dob}</p>}
         </div>
@@ -130,7 +135,8 @@ const StudentForm = ({ faculties, addOrUpdateStudent, studentToEdit }) => {
             type="text"
             value={phone}
             onChange={(e) => setPhone(e.target.value)}
-            className={`mt-1 p-2 border ${errors.phone ? 'border-red-500' : 'border-gray-300'} rounded w-full`}
+            className={`mt-1 p-2 border ${errors.phone ? 'border-red-500' : 'border-gray-300'} shadow appearance-none border rounded w-full py-2 px-3 text-gray-700 leading-tight focus:outline-none focus:shadow-outline focus:bg-white focus:border-purple-900`}
+            placeholder='Tell'
           />
           {errors.phone && <p className="text-red-500 text-sm mt-1">{errors.phone}</p>}
         </div>

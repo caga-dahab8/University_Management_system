@@ -32,11 +32,12 @@ const FacultyForm = ({ addOrUpdateFaculty, facultyToEdit }) => {
           type="text"
           value={name}
           onChange={(e) => setName(e.target.value)}
-          className={`mt-1 p-2 border ${error ? 'border-red-500' : 'border-gray-300'} rounded w-full`}
+          className={`mt-1 p-2 border ${error ? 'border-red-500' : 'border-gray-300'}  shadow appearance-none border rounded w-full py-2 px-3 text-gray-700 leading-tight focus:outline-none focus:shadow-outline focus:bg-white focus:border-purple-900`}
+          placeholder='Faculty...'
         />
         {error && <p className="text-red-500 text-sm mt-1">{error}</p>}
       </div>
-      <button type="submit" className="bg-blue-500 text-white px-4 py-2 rounded">
+      <button type="submit" className="bg-transparent hover:bg-blue-500 text-blue-700 font-semibold hover:text-white py-2 px-4 border border-blue-500 hover:border-transparent rounded">
         {facultyToEdit ? 'Update' : 'Register'}
       </button>
     </form>

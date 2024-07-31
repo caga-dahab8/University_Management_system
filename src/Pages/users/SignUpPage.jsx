@@ -1,6 +1,6 @@
 import React, { useState } from 'react';
 import { useNavigate,Link } from 'react-router-dom';
-// import logo from '../Assets/logo.png'; // Adjust the path to your logo
+import logo from '../../Assets/logo.jpg'
 
 const SignUpPage = ({ onRegister }) => {
   const [fullName, setFullName] = useState('');
@@ -45,7 +45,7 @@ const SignUpPage = ({ onRegister }) => {
     <div className="min-h-screen flex items-center justify-center bg-gray-100">
       <div className="w-full max-w-md bg-white rounded shadow-md p-8">
         <div className="text-center mb-8">
-          <img src="https://via.placeholder.com/300" alt="University Logo" className="mx-auto w-20 mb-4" />
+          <img src={logo} alt="University Logo" className="mx-auto w-20 mb-4" />
           <h1 className="text-2xl font-bold text-green-600">Sign Up</h1>
         </div>
         <form onSubmit={handleSignUp}>
@@ -55,7 +55,8 @@ const SignUpPage = ({ onRegister }) => {
               type="text"
               value={fullName}
               onChange={(e) => setFullName(e.target.value)}
-              className="w-full border border-gray-300 rounded px-3 py-2"
+              className="w-full shadow appearance-none border rounded w-full py-2 px-3 text-gray-700 leading-tight focus:outline-none focus:shadow-outline focus:bg-white focus:border-sky-400"
+              placeholder='Fullname...'
               required
             />
           </div>
@@ -65,7 +66,8 @@ const SignUpPage = ({ onRegister }) => {
               type="text"
               value={username}
               onChange={(e) => setUsername(e.target.value)}
-              className="w-full border border-gray-300 rounded px-3 py-2"
+              className="w-full shadow appearance-none border rounded w-full py-2 px-3 text-gray-700 leading-tight focus:outline-none focus:shadow-outline focus:bg-white focus:border-sky-400"
+              placeholder='username...'
               required
             />
           </div>
@@ -75,7 +77,8 @@ const SignUpPage = ({ onRegister }) => {
               type="email"
               value={email}
               onChange={(e) => setEmail(e.target.value)}
-              className="w-full border border-gray-300 rounded px-3 py-2"
+              className="w-full shadow appearance-none border rounded w-full py-2 px-3 text-gray-700 leading-tight focus:outline-none focus:shadow-outline focus:bg-white focus:border-sky-400"
+              placeholder='email...'
               required
             />
           </div>
@@ -85,7 +88,8 @@ const SignUpPage = ({ onRegister }) => {
               type="password"
               value={password}
               onChange={(e) => setPassword(e.target.value)}
-              className="w-full border border-gray-300 rounded px-3 py-2"
+              className="w-full shadow appearance-none border border-red-500 rounded w-full py-2 px-3 text-gray-700 mb-3 leading-tight focus:outline-none focus:shadow-outline focus:bg-white focus:border-purple-500"
+              placeholder="***************"
               required
             />
           </div>
@@ -94,12 +98,12 @@ const SignUpPage = ({ onRegister }) => {
             <input
               type="file"
               onChange={handleFileChange}
-              className="w-full border border-gray-300 rounded px-3 py-2"
+              className="w-full border border-sky-300 rounded px-3 py-2 bg-primary"
             />
           </div>
           <button
             type="submit"
-            className="w-full bg-blue-500 text-white py-2 rounded hover:bg-blue-600"
+            className="w-full bg-transparent hover:bg-blue-500 text-blue-700 font-semibold hover:text-white py-2 px-4 border border-blue-500 hover:border-transparent rounded"
           >
             SIGN UP
           </button>
